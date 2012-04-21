@@ -17,6 +17,7 @@ lower_case($path);
 function lower_case($path) {
   $files = scandir($path);
   $curdir = getcwd();
+  echo "Getting into $path for action!\n";
   chdir($path);
   foreach ($files as $entry) {
     if (substr($entry,0,1) == '.') {
@@ -26,13 +27,22 @@ function lower_case($path) {
       lower_case($path.'/'.$entry); //if dir, call recursive on new path
     } else {
       //this should be a file, rename
-      exec('mv '.$entry.' '.strtolower($entry));
+      echo "Changing $path"."/".$entry." to ".strtolower($entry)."\n";
+      if (is_dir($path.'/'.strtolower($entry))) {
+        echo "There is already a directory ".$path."/".strtolower($entry).", so not doing anything\n";
+      } else {
+        exec('mv '.$entry.' '.strtolower($entry));
+      }
     }
   } 
   //finally, rename oneself
+  echo "Moving to $path"."/..\n";
   chdir($path.'/..');
   $info = pathinfo($path);
   exec('mv '.$info['basename'].' '.strtolower($info['basename']));
+  //$info = pathinfo($curdir);
+  //$curdir = substr($curdir,0,-(strlen($info['basename']))).strtolower($info['basename']);
+  echo "Moving up to $curdir\n";
   chdir($curdir);
   return true;
 }

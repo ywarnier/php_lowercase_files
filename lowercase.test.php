@@ -3,6 +3,9 @@ $listdirs = array(
 'Test',
 'Test/Test',
 'Test/Test/tEST',
+'Test/AB',
+'Test/AB/jojo',
+'Test/AB/JAja',
 );
 $listfiles = array(
 'Test/AbC.php',
@@ -10,6 +13,8 @@ $listfiles = array(
 'Test/Image.png',
 'Test/imAge.JPEG',
 'Test/Test/abc.TXT',
+'Test/AB/UPS.DOC',
+'Test/AB/OPS.doc',
 );
 foreach ($listdirs as $dir) {
   mkdir($dir);
