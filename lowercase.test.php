@@ -6,6 +6,7 @@ $listdirs = array(
 'Test/AB',
 'Test/AB/jojo',
 'Test/AB/JAja',
+'Test/ijx',
 );
 $listfiles = array(
 'Test/AbC.php',
