@@ -41,7 +41,7 @@ function lower_case($path) {
           echo "This file (".$path.'/'.$entry.") is already lowercase, nothing to do...\n";
         }
       } else {
-        exec('mv '.$entry.' '.strtolower($entry));
+        exec('mv '.escapeshellarg($entry).' '.escapeshellarg(strtolower($entry)));
       }
     }
   } 
@@ -51,7 +51,7 @@ function lower_case($path) {
   if (is_dir($info['dirname'].'/'.strtolower($info['basename']))) {
     echo "There is already a directory called ".$info['dirname'].'/'.strtolower($info['basename']).", so not doing anything...\n";
   } else {
-    exec('mv '.$info['basename'].' '.strtolower($info['basename']));
+    exec('mv '.escapeshellarg($info['basename']).' '.escapeshellarg(strtolower($info['basename'])));
   }
   //$info = pathinfo($curdir);
   //$curdir = substr($curdir,0,-(strlen($info['basename']))).strtolower($info['basename']);

@@ -7,6 +7,7 @@ $listdirs = array(
 'Test/AB/jojo',
 'Test/AB/JAja',
 'Test/ijx',
+'Test/ab cd',
 );
 $listfiles = array(
 'Test/AbC.php',
@@ -16,6 +17,8 @@ $listfiles = array(
 'Test/Test/abc.TXT',
 'Test/AB/UPS.DOC',
 'Test/AB/OPS.doc',
+'Test/ab cd/test.TXT',
+'Test/oh OH oh.txt',
 );
 foreach ($listdirs as $dir) {
   mkdir($dir);
